@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let app = require('./app');
-const debug = require('debug')('week10b:server');
-const http = require("http");
+const app = require('./app');
+let debug = require('debug')('week10a:server');
+let http = require('http');
 let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-const server = http.createServer(app);
+let server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -24,7 +24,7 @@ function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;
     }
-    var bind = typeof port === 'string'
+    let bind = typeof port === 'string'
         ? 'Pipe ' + port
         : 'Port ' + port;
     switch (error.code) {
