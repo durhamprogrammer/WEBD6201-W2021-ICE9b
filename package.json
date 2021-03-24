@@ -2,10 +2,10 @@
   "name": "webd6201-w2021-ice9b",
   "version": "1.0.0",
   "description": "Demo Project for WEBD6201 - ICE 9",
-  "main": "server.js",
   "repository": "https://github.com/durhamprogrammer/WEBD6201-W2021-ICE9b.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
+  "main": "server.js",
   "engines": {
     "node": "^15.0.0",
     "npm": "^6.1.0"
