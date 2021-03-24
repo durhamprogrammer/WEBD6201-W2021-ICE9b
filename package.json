@@ -2,7 +2,7 @@
   "name": "webd6201-w2021-ice9b",
   "version": "1.0.0",
   "description": "Demo Project for WEBD6201 - ICE 9",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/durhamprogrammer/WEBD6201-W2021-ICE9b.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "npm": "^6.1.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
