@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const app = require('./app');
 let debug = require('debug')('week10a:server');
-let http = require('http');
+const http = require("http");
 let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 let server = http.createServer(app);
