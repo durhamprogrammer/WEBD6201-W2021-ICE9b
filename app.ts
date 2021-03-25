@@ -6,7 +6,7 @@ import cookieParser = require('cookie-parser');
 import logger = require('morgan');
 
 // configuration
-const indexRouter = require('./Routes/index');
+let indexRouter = require('./Routes/index');
 const app = express();
 
 // view engine setup

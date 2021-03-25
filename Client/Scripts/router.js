@@ -39,8 +39,8 @@ var core;
     }
     core.Router = Router;
 })(core || (core = {}));
-let router = new core.Router();
-router.AddTable(["/",
+let clientRouter = new core.Router();
+clientRouter.AddTable(["/",
     "/home",
     "/about",
     "/services",
@@ -51,18 +51,10 @@ router.AddTable(["/",
     "/login",
     "/edit"]);
 let route = location.pathname;
-if (router.Find(route) > -1) {
-    router.ActiveLink = (route == "/") ? "home" : route.substring(1);
+if (clientRouter.Find(route) > -1) {
+    clientRouter.ActiveLink = (route == "/") ? "home" : route.substring(1);
 }
 else {
-    router.ActiveLink = "404";
+    clientRouter.ActiveLink = "404";
 }
-(function (l) {
-    if (l.search[1] === '/') {
-        var decoded = l.search.slice(1).split('&').map(function (s) {
-            return s.replace(/~and~/g, '&');
-        }).join('?');
-        window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-    }
-}(window.location));
 //# sourceMappingURL=router.js.map

@@ -101,9 +101,8 @@ namespace core
 
 }
 
-//TODO: need to move the code below into its own file
-let router = new core.Router();
-router.AddTable(["/", 
+let clientRouter = new core.Router();
+clientRouter.AddTable(["/", 
                  "/home", 
                  "/about", 
                  "/services", 
@@ -116,17 +115,17 @@ router.AddTable(["/",
                 
 let route = location.pathname; // alias for location.pathname
 
-if(router.Find(route) > -1)
+if(clientRouter.Find(route) > -1)
 {
-    router.ActiveLink = (route == "/") ? "home" : route.substring(1)
+    clientRouter.ActiveLink = (route == "/") ? "home" : route.substring(1)
 }
 else
 {
-    router.ActiveLink = "404";
+    clientRouter.ActiveLink = "404";
 }
 
 // hack for GitHub Pages
-(function(l) {
+/* (function(l) {
     if (l.search[1] === '/' ) {
       var decoded = l.search.slice(1).split('&').map(function(s) { 
         return s.replace(/~and~/g, '&')
@@ -135,7 +134,7 @@ else
           l.pathname.slice(0, -1) + decoded + l.hash
       );
     }
-  }(window.location));
+  }(window.location)); */
 //-- End Single Page Apps for GitHub Pages -->
 
 

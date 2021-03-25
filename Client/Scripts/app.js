@@ -12,21 +12,21 @@ var core;
         });
     }
     function highlightActiveLink(link) {
-        $(`#${router.ActiveLink}`).removeClass("active");
+        $(`#${clientRouter.ActiveLink}`).removeClass("active");
         if (link == "logout") {
             sessionStorage.clear();
-            router.ActiveLink = "login";
+            clientRouter.ActiveLink = "login";
         }
         else {
-            router.ActiveLink = link;
+            clientRouter.ActiveLink = link;
         }
-        $(`#${router.ActiveLink}`).addClass("active");
+        $(`#${clientRouter.ActiveLink}`).addClass("active");
     }
     function loadLink(link, data = "") {
         highlightActiveLink(link);
-        router.LinkData = data;
-        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
-        history.pushState({}, "", router.ActiveLink);
+        clientRouter.LinkData = data;
+        loadContent(clientRouter.ActiveLink, ActiveLinkCallBack(clientRouter.ActiveLink));
+        history.pushState({}, "", clientRouter.ActiveLink);
     }
     function loadHeader(pageName) {
         $.get("./components/header.html", function (data) {
@@ -153,7 +153,7 @@ var core;
         });
     }
     function displayEdit() {
-        let key = router.LinkData;
+        let key = clientRouter.LinkData;
         let contact = new core.Contact();
         if (key != undefined && key != "") {
             contact.deserialize(localStorage.getItem(key));
@@ -233,7 +233,7 @@ var core;
             }
         }
         addLinkEvents();
-        highlightActiveLink(router.ActiveLink);
+        highlightActiveLink(clientRouter.ActiveLink);
     }
     function authGuard() {
         if (!sessionStorage.getItem("user")) {
@@ -260,8 +260,8 @@ var core;
         }
     }
     function Start() {
-        loadHeader(router.ActiveLink);
-        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+        loadHeader(clientRouter.ActiveLink);
+        loadContent(clientRouter.ActiveLink, ActiveLinkCallBack(clientRouter.ActiveLink));
         loadFooter();
     }
     window.addEventListener("load", Start);

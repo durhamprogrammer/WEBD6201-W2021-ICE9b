@@ -5,7 +5,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const indexRouter = require('./Routes/index');
+let indexRouter = require('./Routes/index');
 const app = express();
 app.set('views', path.join(__dirname, 'Views'));
 app.set('view engine', 'ejs');

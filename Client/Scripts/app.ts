@@ -32,18 +32,18 @@ namespace core
     function highlightActiveLink(link:string):void
     {
       // swap active link
-      $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
+      $(`#${clientRouter.ActiveLink}`).removeClass("active"); // removes highlighted link
             
       if(link == "logout")
       {
         sessionStorage.clear();
-        router.ActiveLink = "login";
+        clientRouter.ActiveLink = "login";
       }
       else
       {
-        router.ActiveLink = link;
+        clientRouter.ActiveLink = link;
       }
-      $(`#${router.ActiveLink}`).addClass("active"); // applies highlighted link to new page
+      $(`#${clientRouter.ActiveLink}`).addClass("active"); // applies highlighted link to new page
     }
 
     /**
@@ -56,9 +56,9 @@ namespace core
     function loadLink(link:string, data:string = ""):void
     {
       highlightActiveLink(link);
-      router.LinkData = data;
-      loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
-      history.pushState({},"", router.ActiveLink); // this replaces the url displayed in the browser
+      clientRouter.LinkData = data;
+      loadContent(clientRouter.ActiveLink, ActiveLinkCallBack(clientRouter.ActiveLink));
+      history.pushState({},"", clientRouter.ActiveLink); // this replaces the url displayed in the browser
     }
 
     /**
@@ -284,7 +284,7 @@ namespace core
 
     function displayEdit(): void
     {
-      let key = router.LinkData;
+      let key = clientRouter.LinkData;
 
       let contact = new core.Contact();
 
@@ -441,7 +441,7 @@ namespace core
       }
 
       addLinkEvents();
-      highlightActiveLink(router.ActiveLink);
+      highlightActiveLink(clientRouter.ActiveLink);
     }
 
     function authGuard():void
@@ -490,9 +490,9 @@ namespace core
      */
     function Start(): void
     {
-        loadHeader(router.ActiveLink);
+        loadHeader(clientRouter.ActiveLink);
       
-        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+        loadContent(clientRouter.ActiveLink, ActiveLinkCallBack(clientRouter.ActiveLink));
 
         loadFooter();
     }
